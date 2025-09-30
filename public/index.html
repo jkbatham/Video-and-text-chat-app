@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Chat App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Video Chat App</h1>
+            <p>Create or join a room to start video calling</p>
+        </header>
+
+        <div class="main-content">
+            <div class="create-room">
+                <h2>Create New Room</h2>
+                <input type="text" id="userName" placeholder="Enter your name" required>
+                <button onclick="createRoom()">Create Room</button>
+            </div>
+
+            <div class="join-room">
+                <h2>Join Existing Room</h2>
+                <div class="input-group">
+                    <input type="text" id="joinUserName" placeholder="Your name" required>
+                    <input type="text" id="roomId" placeholder="Room ID">
+                    <button onclick="joinRoom()">Join Room</button>
+                </div>
+                
+                <div class="available-rooms">
+                    <h3>Available Rooms</h3>
+                    <button onclick="refreshRooms()">Refresh Rooms</button>
+                    <div id="roomsList" class="rooms-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            <p>Connecting to room...</p>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

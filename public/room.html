@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Room</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="room-container">
+        <header class="room-header">
+            <h1>Video Room</h1>
+            <div class="room-info">
+                <span id="roomIdDisplay"></span>
+                <span id="userCount">0 users</span>
+            </div>
+        </header>
+
+        <div class="room-content">
+            <div class="video-section">
+                <div class="video-grid" id="videoGrid">
+                    <!-- Video elements will be added here -->
+                </div>
+                
+                <div class="controls">
+                    <button id="toggleVideo" class="control-btn">📹</button>
+                    <button id="toggleAudio" class="control-btn">🎤</button>
+                    <button id="switchCamera" class="control-btn">🔄</button>
+                    <button id="toggleFlash" class="control-btn">💡</button>
+                    <button id="shareScreen" class="control-btn">🖥️</button>
+                    <button id="leaveRoom" class="control-btn leave">Leave</button>
+                </div>
+            </div>
+
+            <div class="chat-section">
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Messages will appear here -->
+                </div>
+                
+                <div class="typing-indicator" id="typingIndicator"></div>
+                
+                <div class="chat-input">
+                    <input type="text" id="messageInput" placeholder="Type a message..." 
+                           oninput="handleTyping()">
+                    <input type="file" id="fileInput" multiple style="display: none;">
+                    <button onclick="document.getElementById('fileInput').click()">📎</button>
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
